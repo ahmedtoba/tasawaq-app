@@ -1,13 +1,216 @@
 <!doctype html>
-<html lang="en">
+<html dir="rtl">
 <head>
   <meta charset="utf-8">
   <title>TsoqApp</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="./assets/images/logo-icon.svg" />
+  <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
 </head>
-<body>
+<body class="mat-typography bg-[#f5f5f5]">
   <app-root></app-root>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src=" https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+  <div onclick="openNav()"
+    class="  gg4255 items-center bg-black/30  justify-center hidden top-0 right-0 left-0 bottom-0 z-[10] fixed">
+  </div>
+
+  <script>
+    let openFile = function (file) {
+      let input = file.target;
+      let reader = new FileReader();
+      reader.onload = function () {
+        let dataURL = reader.result;
+        let output = document.getElementById('output');
+        let plus = document.getElementById('plus');
+        let delete2 = document.getElementById('delete');
+
+        output.classList.remove("hidden");
+        output.classList.add("block");
+        plus.classList.add("hidden");
+        plus.classList.remove("block");
+        delete2.classList.remove("hidden");
+        delete2.classList.add("block");
+
+
+        output.src = dataURL;
+      };
+      reader.readAsDataURL(input.files[0]);
+    };
+    function clearInputFile(ctrl) {
+      let output = document.getElementById('output');
+      let plus = document.getElementById('plus');
+      let delete2 = document.getElementById('delete');
+
+
+      try {
+        ctrl.value = null;
+      } catch (ex) { }
+      if (ctrl.value) {
+        ctrl.parentNode.replaceChild(ctrl.cloneNode(true), ctrl);
+      }
+      plus.classList.remove("hidden");
+      plus.classList.add("block");
+      output.classList.add("hidden");
+      output.classList.remove("block");
+      delete2.classList.add("hidden");
+      delete2.classList.remove("block");
+    }
+    let gg42245 = document.querySelector(".gg4255")
+    function openPop(gg42) {
+      console.log("kiii")
+      document.querySelector(gg42).classList.add('flex');
+      document.querySelector(gg42).classList.remove('hidden');
+      document.body.classList.add("overflow-hidden");
+      gg42245.classList.add("block");
+      gg42245.classList.remove("hidden");
+    }
+    function closePop(gg42) {
+      document.querySelector(gg42).classList.remove('flex');
+      document.querySelector(gg42).classList.add('hidden');
+      document.body.classList.remove("overflow-hidden");
+      document.body.style.height = "100%";
+      document.body.style.position = "relative";
+      document.body.style.width = "100%";
+
+      gg42245.classList.remove("block");
+      gg42245.classList.add("hidden");
+
+
+    }
+    $(document).ready(function () {
+      initVariables();
+
+      table = $('#example').DataTable({
+        "aaSorting": [],
+        language: {
+          paginate: {
+            next: '<span class="glyphicon glyphicon-menu-right">›</span>',
+            previous: '<span class="glyphicon glyphicon-menu-left">‹</span>'
+          },
+
+        },
+        lengthChange: false,
+        scrollX: true,
+        dom: 'Bfrtip',
+        buttons: [
+          {
+
+            className: 'bg-resolved',
+            text: 'Resolved Selected Finding(s)',
+            action: function (e, dt, node, config) {
+              alert('Button activated');
+            }
+          },
+          'csv',
+          'pdf', 'excel', 'print',
+        ],
+      });
+
+      table.buttons().container()
+        .appendTo('#example_wrapper .col-md-6:eq(0)');
+    });
+
+    let qqqs, brothers, sidebaradmin, sidebarscroll;
+
+    function initVariables() {
+      qqqs = document.querySelectorAll(".qqq");
+      brothers = document.querySelectorAll(".brothers");
+      sidebaradmin = document.querySelector("#sidebaradmin");
+      sidebarscroll = document.querySelector("#sidebarscroll");
+    }
+
+    function sidemane(d) {
+      if (d) {
+        document.querySelector("#sidebaradmin").classList.remove('hidden');
+        document.querySelector("#backside").classList.remove('hidden');
+        document.body.classList.add("overflow-hidden");
+        document.body.style.height = "100vh";
+        document.body.style.position = "fixed";
+        document.body.style.width = "100%";
+      } else {
+        document.querySelector("#sidebaradmin").classList.add('hidden');
+        document.querySelector("#backside").classList.add('hidden');
+        document.body.classList.remove("overflow-hidden");
+        document.body.style.height = "100%";
+        document.body.style.position = "relative";
+        document.body.style.width = "100%";
+      }
+    }
+
+
+    function sidebar() {
+      let sidebaradmin = document.querySelector("#sidebaradmin");
+      sidebaradmin.classList.remove("md:w-20");
+      sidebaradmin.classList.add("w-56");
+      sidebaradmin.style.width = "14rem";
+      sidebaradmin.dataset.togale = 'false';
+      sidebarscroll.classList.remove("md:overflow-y-visible");
+      document.querySelector(".pagecontent").classList.add("open");
+      for (let i = 0; i < qqqs.length; i++) {
+        qqqs[i].classList.remove("md:w-0");
+        qqqs[i].classList.add("w-36");
+      }
+    }
+    function setMouse(e, d) {
+      if (e == 'true') {
+        sidebar()
+
+      }
+      else {
+        document.querySelector(d).classList.remove("w-56");
+        document.querySelector(d).classList.add("md:w-20");
+        document.querySelector(d).style.width = "5rem";
+        document.querySelector(d).dataset.togale = 'true';
+        sidebarscroll.classList.add("md:overflow-y-visible");
+        document.querySelector(".pagecontent").classList.remove("open");
+        for (let i = 0; i < qqqs.length; i++) {
+          qqqs[i].classList.add("md:w-0");
+          qqqs[i].classList.remove("w-36");
+        }
+        for (let i = 0; i < brothers.length; i++) {
+          brothers[i].style.height = "0px";
+        }
+
+      }
+    }
+    let fathers = document.querySelectorAll(".father");
+
+
+    fathers.forEach(father => {
+      father.addEventListener("click", function () {
+        let brothers = this.nextElementSibling;
+        if (brothers.classList.contains("show")) {
+          brothers.classList.remove("show");
+          brothers.style.opacity = 1;
+          brothers.style.height = brothers.firstElementChild.offsetHeight + "px";
+
+          if (sidebaradmin.classList.contains("md:w-20")) {
+            sidebar()
+          }
+        } else {
+          brothers.style.opacity = 0;
+          brothers.style.height = "0px";
+          brothers.classList.add("show");
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<div class="flex items-center justify-between">
+    <div>
+        <h1 class="h1 mt-5 md:mt-0 ">
+            الفئات
+        </h1>
+        <p class="text-sm font-semibold text-gray">125 فئة</p>
+    </div>
+    <div class="flex gap-2">
+
+        <button onclick="openPop('.flexsss25')"
+            class="h-12 flex p-2 px-4 gap-2 btn rounded-xl  items-center justify-center">
+            <img src="../../../assets/images/add.svg" class="w-5 h-5">
+            <span class=" text-white  group-hover:text-red font-semibold mt-1 text-s15 "> إضافة فئة جديد</span>
+
+        </button>
+    </div>
+</div>
+
+<div class="relative p-6 mt-4 rounded-2xl bg-white">
+    <table id="example" class="table table-striped " style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    <label class="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="checkbox">
+                        <input type="checkbox"
+                            class="before:content[''] peer relative  h-5 w-5 cursor-pointer appearance-none rounded-md border border-gray3/50 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue2 checked:bg-blue2 checked:before:bg-blue2 hover:before:opacity-10"
+                            id="checkbox" />
+                        <span
+                            class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                fill="currentColor" stroke="currentColor" stroke-width="1">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                    </label>
+                </th>
+
+                <th class="font-bold uppercase text-slate-400 text-xxs opacity-70">
+                    <span class="pe-2">الاسم</span>
+                </th>
+
+                <th class="font-bold uppercase text-slate-400 text-xxs opacity-70">
+                    <span class="pe-2">عدد منتجات </span>
+                </th>
+                <th class="font-bold uppercase text-slate-400 text-xxs opacity-70">
+                    <span class="pe-2">تاريخ الانشاء</span>
+                </th>
+                <th class="font-bold uppercase text-slate-400 text-xxs opacity-70">
+                    <span class="pe-2">العرض في الخيارات</span>
+                </th>
+                <th class="font-bold uppercase text-slate-400 text-xxs opacity-70">
+                    <span class="pe-2">إجراءات</span>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+
+                <td>
+                    <div class="inline-flex items-center">
+                        <label class="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="checkbox">
+                            <input type="checkbox"
+                                class="before:content[''] peer relative  h-5 w-5 cursor-pointer appearance-none rounded-md border border-border-gray3/50 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue2 checked:bg-blue2 checked:before:bg-blue2 hover:before:opacity-10"
+                                id="checkbox" checked />
+                            <span
+                                class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                    fill="currentColor" stroke="currentColor" stroke-width="1">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </label>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="flex gap-3 items-center">
+                        <img src="../../../assets/images/phone.png" class="w-12 h-12">
+                        <p class=" font-bold text-black34/85 ">Samsung Galaxy-M1</p>
+                    </div>
+                </td>
+
+
+                <td>
+                    <p class=" font-bold text-black34/85 ">0</p>
+                </td>
+
+                <td>
+                    <p class=" font-bold text-black34/85 ">2022-02-02</p>
+                </td>
+
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+
+                <td class="text-sm font-normal leading-normal">
+                    <div class="flex  justify-end">
+                        <button class="p-2 rounded-full hover:bg-gray3/30 ">
+                            <img src="../../../assets/images/edit.svg" class="w-4 h-4">
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray3/30 ">
+                            <img src="../../../assets/images/view.svg" class="w-4 h-4">
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-gray3/30 ">
+                            <img src="../../../assets/images/delete.svg" class="w-4 h-4">
+                        </button>
+
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
